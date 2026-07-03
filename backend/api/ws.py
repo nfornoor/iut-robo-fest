@@ -4,7 +4,6 @@ from models.device import Room
 from models.schemas import UsageResponse
 from store import alerts, devices
 
-
 class ConnectionManager:
     def __init__(self):
         self.active_connections: list[WebSocket] = []
