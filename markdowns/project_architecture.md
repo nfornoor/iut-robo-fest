@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-A single backend acts as the source of truth for 18 simulated devices (3 rooms × 2 fans × 3 lights). Two client interfaces — a real-time web dashboard and a Discord bot — read from and (optionally) act on that same backend, so both always reflect identical state.
+A single backend acts as the source of truth for 15 simulated devices (3 rooms × 5 devices each). Two client interfaces — a real-time web dashboard and a Discord bot — read from and (optionally) act on that same backend, so both always reflect identical state.
 
 ```
 [Device Simulator] → [Backend API + Store] → [WebSocket] → [Web Dashboard]
@@ -28,9 +28,9 @@ A single backend acts as the source of truth for 18 simulated devices (3 rooms �
 - Resets daily (or on demo restart).
 
 ### 2.3 Backend API (single source of truth)
-- **Owns** the in-memory (or lightweight DB-backed) device store — 18 device records.
+- **Owns** the in-memory (or lightweight DB-backed) device store — 15 device records.
 - Exposes:
-  - `GET /devices` — full state of all 18 devices
+  - `GET /devices` — full state of all 15 devices
   - `GET /rooms/{room}` — state for one room
   - `GET /usage` — current total wattage + accumulated kWh (office-wide and per-room)
   - `GET /alerts` — active anomaly conditions
@@ -39,7 +39,7 @@ A single backend acts as the source of truth for 18 simulated devices (3 rooms �
 
 ### 2.4 Web Dashboard
 - Subscribes to the WebSocket (or polls REST on an interval) — no manual refresh needed.
-- **Live Device Status Panel** — all 18 devices, grouped by room, with on/off indicators.
+- **Live Device Status Panel** — all 15 devices, grouped by room, with on/off indicators.
 - **Live Power Meter** — total office wattage + per-room breakdown, updates alongside device panel.
 - **Active Alerts Panel** — timestamped anomalies (see §3).
 - *(Bonus)* Top-view office layout with lights glowing / fans animating based on live state.
@@ -59,7 +59,7 @@ A single backend acts as the source of truth for 18 simulated devices (3 rooms �
 - Concept-only circuit for **one representative room**.
 - ESP32 (or Arduino) reading device on/off state, optionally with a current-sensing component (e.g., ACS712) to demonstrate how real wattage sensing would work.
 - Relays used to represent switching fans/lights.
-- Not wired for all 18 devices — one room is sufficient to demonstrate the wiring pattern.
+- Not wired for all 15 devices — one room is sufficient to demonstrate the wiring pattern.
 
 ---
 
