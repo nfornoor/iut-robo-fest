@@ -42,7 +42,7 @@ Built for **Techathon Nationals & Rover Summit — Preliminary Round**.
        ▼          ▼
 ┌──────────┐  ┌──────────┐
 │Dashboard │  │Discord Bot│
-│(Next.js) │  │(discord.py)│
+│(React) │  │(discord.py)│
 └──────────┘  └──────────┘
 ```
 
